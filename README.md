@@ -12,3 +12,33 @@ The results of all models are as follows.
 # Data 
 The whole dataset contains about 26,550  questions and answers pairs about machine learning, and we split it randomly into a training dataset (70%), validation dataset (10%), and test dataset (20%). 3,000 QA pairs are picked from the dataset [[1]](#1), and 5,000 rows of question and answer pairs from SQuAD 2 [[2]](#2). The others are scraped from websites, such as Wiki and GeeksforGeeks. The tsne plot of the dataset is as follows.
 ![tsne](images/tsne.png)
+# Model & Finetuning 
+We used 5 different LLMs, which are Llama2-7b-chat, Mistral 7b, Yi-6b, GPT2, and our customized model. The llama2.ipynb (and other files named by models) is the code for finetuning.
+ # Quick Get Start
+### Installation instructions:
+- **Hugging face Access Tokens:** Sign up and apply a [Hugging face Access Tokens](https://huggingface.co/settings/tokens)
+- **Install necessary dependencies:** The python version needs to be 3.9. Please install necessary dependencies before running the code.
+    ```
+    pip install Flask transformers SpeechRecognition torch nltk scikit-learn datasets gTTS pandas
+    ```
+- **Modify path:** Modify the correct local path where the dataset and model are located in the [app1_3plus file](https://github.com/SjieZ/QAforML/blob/main/app1_3plus.py).
+- **Run the project:**
+  - login Hugging face Access Tokens in WSL environment：
+    ```
+    huggingface-cli login --token XXXXX"     # change  "XXXXX" to your own Access Tokens
+    ```
+  - Run the code in WSL environment:
+    ```
+    python app1_3plus.py
+    ```
+
+## References
+<a id="1">[1]</a> 
+evang Kulshreshtha, Robert Belfer, Iulian Vlad Serban, and
+Siva Reddy. Back-training excels self-training at unsuper-
+vised domain adaptation of question generation and passage
+retrieval, 2021
+
+<a id="2">[2]</a> 
+ranav Rajpurkar, Robin Jia, and Percy Liang. Know what
+you don’t know: Unanswerable questions for squad, 2018.
